@@ -1,27 +1,38 @@
-# ProductCardPaginator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.2.
+### Angular-Homework-03
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+* Install [Angular Material](https://material.angular.io/) and explore the `Card` and `Paginator` components.
+* Go to [DummyJSON API](https://dummyjson.com/products), save the response in `data.ts`, and type the data using [JSON to TS](https://transform.tools/json-to-typescript).
+* Create a component `products` to display list of products with pagination.
+   * Each product card has the name, description, thumbnail, and a button `More...` to show the full product details.
+   * Use the necessary pipes to truncate the product title and description.
+* When the user clicks on the product `More...` button, display a component that shows the full product details. This `product` details component receives the data from its parent component.
+  
+Notes:
+* Use `signal` to hold the components state.
+* Use `computed` to compute the product details of the product that needs to be displayed in the `product` component.
+* Use `effect` to log the `id` of the currently displayed product.
+* Apply the idea of Container/Stateful vs. Representational/Stateless components in your code. The `products` component is stateful, and the `product` component is stateless.
+  
+The following HTML/CSS will center the content of the page horizontally and vertically:
+```html
+<div class="container">
+   <div class="centered">Content</div>
+</div>
+```
+```css
+.container{
+    /* Center horizontally */
+    margin: 0 auto;
+    width: 400px;
+    height: 100vh;
+    /* Setup to center vertically */
+    position: relative;
+}
+.centered{
+  /* Center vertically */
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+```
