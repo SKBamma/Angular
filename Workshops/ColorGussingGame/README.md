@@ -30,5 +30,5 @@ The two private methods below generate a random HEX color value, and pick a rand
     return arr[Math.floor(Math.random() * arr.length)];
   }
 ```
-Good luck to everyone, and happy coding!  
+
 
