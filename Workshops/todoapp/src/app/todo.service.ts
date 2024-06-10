@@ -45,7 +45,7 @@ export class TodoService {
   addNewTodo(todo: ITodo) {
     return this.#http.post('https://dummyjson.com/todos/add', todo);
   }
-  // add todo by id from state(update state)
+  // add todo by id from state(update state) no need to return to update state
   addTodoByIdFromState(newTodo: ITodo) {
     this.todos.update(todos => [...todos, newTodo]);
   }
