@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [],
+  imports: [ReactiveFormsModule],
   template: `
-    <p>
-      signin works!
-    </p>
+    <form >
+      <input type="text" placeholder="Email"> <br>
+      <input type="text" placeholder="Password"> <br>
+      <button   type="submit">Submit</button>
+    </form>
   `,
   styles: ``
 })
