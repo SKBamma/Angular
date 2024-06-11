@@ -16,7 +16,7 @@ export const signup: RequestHandler<unknown, IResponse<IUser>, IUser> = async (r
             ...new_user,
             password: hashed_password
         });
-        res.json({ success: true, data: results });
+        res.json({ success: true, data: { ...results, password: '' } });
     } catch (error) {
         next(error);
     }

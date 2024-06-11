@@ -1,34 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
+import { environment } from '../../environments/environment';
+import { IUser, SigninType, State, initial_State } from './auth.types';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
-export type IUser = {
-  _id: string,
-  fullname: string,
-  email: string,
-  password: string;
-};
-export type SigninType = {
-  email: string,
-  password: string;
-};
-
-export type State = {
-  _id: string,
-  fullname: string,
-  email: string,
-  jwt: string;
-};
-
-export const initial_State = {
-  _id: '',
-  fullname: '',
-  email: '',
-  jwt: ''
-};
 
 export class AuthService {
   readonly #http = inject(HttpClient);
@@ -36,10 +15,16 @@ export class AuthService {
 
   // http methods
   userSignup(newUser: IUser) {
-    return this.#http.post<IUser>("", newUser);
+    return this.#http.post<{ success: boolean, data: IUser; }>
+      (environment.BACKEND_SERVER_URL + '/auth/signup', newUser);
   }
 
   userSignin(user: SigninType) {
-    return this.#http.post<SigninType>("", user);
+    return this.#http.post<{ success: true, data: string; }>
+      (environment.BACKEND_SERVER_URL + '/auth/signin', user);
+  }
+
+  is_logged_in() {
+    return this.state()._id ? true : false;
   }
 }
