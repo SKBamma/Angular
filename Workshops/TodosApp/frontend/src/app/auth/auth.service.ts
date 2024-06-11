@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject, signal } from '@angular/core';
+import { Injectable, effect, inject, signal } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { IUser, SigninType, State, initial_State } from './auth.types';
 
@@ -12,6 +12,13 @@ import { IUser, SigninType, State, initial_State } from './auth.types';
 export class AuthService {
   readonly #http = inject(HttpClient);
   state = signal<State>(initial_State);
+
+  constructor() {
+    effect(() => {
+      localStorage.setItem("AppTodo", JSON.stringify(this.state()));
+    });
+  }
+
 
   // http methods
   userSignup(newUser: IUser) {

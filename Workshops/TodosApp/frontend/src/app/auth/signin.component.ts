@@ -28,8 +28,8 @@ export class SigninComponent {
   readonly #router = inject(Router);
 
   form = inject(FormBuilder).group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]]
+    email: ['sb@gmail.com', [Validators.required, Validators.email]],
+    password: ['123123', [Validators.required]]
   });
 
   onSignin() {
