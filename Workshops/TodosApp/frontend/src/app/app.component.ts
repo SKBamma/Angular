@@ -13,7 +13,6 @@ import { initial_State } from './auth/auth.types';
 <div>
   <button [routerLink]="['', 'todos', 'list']">List</button> &nbsp;
   <button [routerLink]="['', 'todos', 'add-todo']">Add</button>  &nbsp;
-  <button [routerLink]="['', 'todos', 'update-todo']">Update</button>  &nbsp;
   <button type="submit" (click)="onLogout()">Logout</button>  &nbsp;
 </div>
 }@else {

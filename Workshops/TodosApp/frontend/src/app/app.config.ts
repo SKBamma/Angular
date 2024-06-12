@@ -4,9 +4,10 @@ import { provideRouter } from '@angular/router';
 import { provideToastr } from 'ngx-toastr';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthService } from './auth/auth.service';
+import { addTokenInterceptor } from './auth/add-token.interceptor';
 
 const bootstrap = () => {
   const authService = inject(AuthService);
@@ -21,7 +22,7 @@ const bootstrap = () => {
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
   provideRouter(routes),
-  provideHttpClient(),
+  provideHttpClient(withInterceptors([addTokenInterceptor])),
   provideToastr(), // Toastr providers
   provideAnimationsAsync(),
   { provide: APP_INITIALIZER, multi: true, useFactory: bootstrap }

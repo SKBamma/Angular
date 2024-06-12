@@ -12,5 +12,9 @@ export const todos_routes: Routes = [
     {
         path: 'update-todo',
         loadComponent: () => import('./update.component').then(c => c.UpdateComponent)
+    },
+    {
+        path: 'todo-details',
+        loadComponent: () => import('./todo-details.component').then(c => c.TodoDetailsComponent)
     }
 ];
