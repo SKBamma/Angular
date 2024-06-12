@@ -1,7 +1,7 @@
 import { Router, Routes } from '@angular/router';
 
 import { SigninComponent } from './auth/signin.component';
-import { inject } from '@angular/core';
+import { Inject, inject } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 const signin_Guard = () => {
@@ -30,6 +30,11 @@ export const routes: Routes = [
         path: 'signup',
         loadComponent: () => import('./auth/signup.component').then(c => c.SignupComponent),
         canActivate: [() => !inject(AuthService).is_logged_in()]
+    },
+    {
+        path: 'profile',
+        loadComponent: () => import('./auth/profile-picture.component').then(c => c.ProfilePictureComponent),
+        canActivate: [() => inject(AuthService).is_logged_in()]
     },
     {
         path: 'todos',

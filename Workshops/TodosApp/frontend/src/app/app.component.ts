@@ -9,22 +9,28 @@ import { initial_State } from './auth/auth.types';
   imports: [RouterOutlet, RouterLink],
   template: `
     <h1>Welcome to {{authService.state().fullname}}!</h1>
+
 @if(authService.is_logged_in()){
 <div>
+  &nbsp; &nbsp;&nbsp;  &nbsp;&nbsp;
+  <button [routerLink]="['', 'profile']">Profile Picture</button> &nbsp;
   <button [routerLink]="['', 'todos', 'list']">List</button> &nbsp;
   <button [routerLink]="['', 'todos', 'add-todo']">Add</button>  &nbsp;
   <button type="submit" (click)="onLogout()">Logout</button>  &nbsp;
 </div>
+
 }@else {
   <div>
     <button [routerLink]="['signin']">SignIn </button> &nbsp; &nbsp;
     <button [routerLink]="['signup']"> SignUp </button>
 </div>
 }
+
     <router-outlet />
   `,
   styles: [],
 })
+
 export class AppComponent {
   readonly authService = inject(AuthService);
   readonly #router = inject(Router);
