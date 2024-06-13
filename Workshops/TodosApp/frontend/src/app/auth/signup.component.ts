@@ -26,6 +26,7 @@ import { IUser } from './auth.types';
 export class SignupComponent {
   readonly authService = inject(AuthService);
   readonly #router = inject(Router);
+
   form = inject(FormBuilder).group({
     fullname: ['', [Validators.required]],
     email: ['', [Validators.required, Validators.email]],

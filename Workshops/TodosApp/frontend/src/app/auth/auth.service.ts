@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   userSignin(user: SigninType) {
-    return this.#http.post<{ success: true, data: string; }>
+    return this.#http.post<{ success: boolean, data: string; }>
       (environment.BACKEND_SERVER_URL + '/auth/signin', user);
   }
 

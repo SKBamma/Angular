@@ -1,7 +1,7 @@
 import { Router, Routes } from '@angular/router';
 
 import { SigninComponent } from './auth/signin.component';
-import { Inject, inject } from '@angular/core';
+import { inject } from '@angular/core';
 import { AuthService } from './auth/auth.service';
 
 const signin_Guard = () => {

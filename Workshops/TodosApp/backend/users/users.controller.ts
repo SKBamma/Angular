@@ -39,7 +39,10 @@ export const getPictureById: RequestHandler<{ user_id: string, picture_id: strin
     try {
         const { user_id, picture_id } = req.params;
         // console.log(req.params)
-        const results = await usersModel.findOne({ _id: user_id, 'pictures._id': picture_id }, { 'pictures.$': 1 });
+        const results = await usersModel.findOne({
+            _id: user_id,
+            'pictures._id': picture_id
+        }, { 'pictures.$': 1 });
         if (results!.pictures[0].url)
             fs.createReadStream(path.join(__dirname, '../', 'uploads', results!.pictures[0].url)).pipe(res);
     } catch (error) {

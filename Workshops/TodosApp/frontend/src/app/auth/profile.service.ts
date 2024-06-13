@@ -11,8 +11,8 @@ export class ProfileService {
   readonly authService = inject(AuthService);
 
   // get all pictuures
-  getPictures = this.#http.get<{ success: boolean, data: { _id: string, url: string; }[]; }>(environment.BACKEND_SERVER_URL +
-    '/users/' + this.authService.state()._id + '/pictures');
+  getPictures = this.#http.get<{ success: boolean, data: { _id: string, url: string; }[]; }>
+    (environment.BACKEND_SERVER_URL + '/users/' + this.authService.state()._id + '/pictures');
 
 
   // get one picture by id
