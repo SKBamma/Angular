@@ -16,7 +16,8 @@ import { AuthService } from './auth.service';
    </form>
 
    @for (pic of $pictures(); track pic._id) {
-    <img width ="100" src="http://localhost:3000/users/{{authService.state()._id}}/pictures/{{pic._id}}"/>
+    <img width ="100" 
+    src="http://localhost:3000/users/{{authService.state()._id}}/pictures/{{pic._id}}"/>
    }
   `,
   styles: ``
