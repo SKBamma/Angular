@@ -23,7 +23,7 @@ import { Todo } from './todos.types';
     </div>
    </li>
     
-   }
+   } 
    </ol>
   `,
   styles: `

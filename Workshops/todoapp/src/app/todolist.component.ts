@@ -67,6 +67,7 @@ export class TodolistComponent {
   async fetchTodos(index: number) {
     this.serviceTodo.getTodos(index).subscribe(response => {
       // console.log(response);
+      // only need to set at detching
       this.serviceTodo.extras.set({
         total: response.total,
         skip: response.skip,
@@ -88,7 +89,6 @@ export class TodolistComponent {
         );
       }
     });
-
   }
 
   navigateToUpdate(todo: ITodo) {
