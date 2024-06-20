@@ -24,7 +24,7 @@ export const routes: Routes = [
         path: 'signin',
         component: SigninComponent,
         // canActivate: [() => !inject(AuthService).is_logged_in()]
-        canActivate: [signin_Guard] // details guard
+        canActivate: [signin_Guard()] // details guard
     },
     {
         path: 'signup',
